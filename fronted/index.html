@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+
+</head>
+<body>
+    
+</body>
+
+<script>
+// Create a WebSocket connection to the backend
+const socket = io('http://localhost:8080'); // Replace with your backend URL
+
+// Handle events on the WebSocket connection
+socket.on('connect', () => {
+  console.log('Connected to backend websockets');
+});
+
+socket.on('message', (data) => {
+  console.log('Received message from backend:', data);
+  // Process the received message or update your HTML/CSS accordingly
+});
+
+// Send a message to the backend
+function sendMessage() {
+  const message = 'Hello, backend!';
+  socket.emit('message', message);
+}
+
+
+</script>
+</html>
